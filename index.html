@@ -8,445 +8,112 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    /* ── Variables ─────────────────────────────────────────────── */
     :root {
-      --bg:        #f5f3ee;
-      --paper:     #faf9f6;
-      --ink:       #1c1c1e;
-      --mid:       #5a5a5a;
-      --rule:      #d6d2c8;
-      --accent:    #b8892a;
-      --accent-lt: #e8d5a3;
-      --card-bg:   #ffffff;
-      --serif:     'Cormorant Garamond', Georgia, serif;
-      --mono:      'DM Mono', 'Courier New', monospace;
-      --sans:      'Outfit', sans-serif;
+      --bg:      #f5f3ee;
+      --paper:   #faf9f6;
+      --ink:     #1c1c1e;
+      --mid:     #5a5a5a;
+      --rule:    #d6d2c8;
+      --accent:  #b8892a;
+      --card-bg: #ffffff;
+      --serif:   'Cormorant Garamond', Georgia, serif;
+      --mono:    'DM Mono', 'Courier New', monospace;
+      --sans:    'Outfit', sans-serif;
     }
 
-    /* ── Reset ─────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--sans);
-      background-color: var(--bg);
-      color: var(--ink);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    /* ── Utility ───────────────────────────────────────────────── */
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
+    body { font-family: var(--sans); background-color: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
     a { color: inherit; text-decoration: none; }
 
-    /* ── Header Rule Decoration ────────────────────────────────── */
-    .rule-group {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 36px;
-    }
-    .rule-group .rule { flex: 1; height: 1px; background: var(--rule); }
-    .rule-group .dot  { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-
-    /* ── NAV ───────────────────────────────────────────────────── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--bg);
-      border-bottom: 1px solid var(--rule);
-      padding: 14px 0;
-    }
-
-    nav .inner {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-brand {
-      font-family: var(--mono);
-      font-size: 13px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--mid);
-      transition: color 0.2s;
-    }
-
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 14px 0; }
+    nav .inner { max-width: 960px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: var(--mono); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
 
-    /* ── HERO ──────────────────────────────────────────────────── */
-    header {
-      padding: 80px 0 64px;
-      background: var(--paper);
-      border-bottom: 1px solid var(--rule);
-    }
+    /* HERO */
+    header { padding: 80px 0 64px; background: var(--paper); border-bottom: 1px solid var(--rule); }
+    .hero-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .hero-name { font-family: var(--serif); font-size: clamp(42px, 7vw, 72px); font-weight: 500; line-height: 1.05; color: var(--ink); margin-bottom: 20px; }
+    .hero-tagline { font-size: 16px; font-weight: 300; color: var(--mid); max-width: 500px; line-height: 1.7; margin-bottom: 36px; min-height: 56px; transition: opacity 0.2s; }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .badge { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; padding: 5px 12px; border: 1px solid var(--rule); border-radius: 2px; background: var(--card-bg); color: var(--mid); }
+    .badge.accent { border-color: var(--accent); color: var(--accent); }
 
-    .hero-label {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 20px;
-    }
+    /* SECTION */
+    section { padding: 72px 0; }
+    section:nth-of-type(even) { background: var(--paper); }
+    .section-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .section-title { font-family: var(--serif); font-size: clamp(28px, 4vw, 38px); font-weight: 500; line-height: 1.15; }
 
-    .hero-name {
-      font-family: var(--serif);
-      font-size: clamp(42px, 7vw, 72px);
-      font-weight: 500;
-      line-height: 1.05;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-      margin-bottom: 20px;
-    }
+    /* TOGGLE */
+    .portfolio-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 40px; flex-wrap: wrap; gap: 20px; }
+    .toggle-wrap { display: flex; align-items: center; border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; background: var(--card-bg); }
+    .toggle-btn { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 9px 18px; cursor: pointer; background: transparent; border: none; color: var(--mid); transition: background 0.2s, color 0.2s; display: flex; align-items: center; gap: 7px; }
+    .toggle-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
+    .toggle-btn.active { background: var(--ink); color: #fff; }
+    .toggle-divider { width: 1px; height: 38px; background: var(--rule); flex-shrink: 0; }
 
-    .hero-tagline {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--mid);
-      max-width: 500px;
-      line-height: 1.7;
-      margin-bottom: 36px;
-    }
+    /* GRIDS */
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .projects-grid.hidden { display: none; }
 
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+    /* CARD */
+    .project-card { background: var(--card-bg); border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; transition: box-shadow 0.25s, transform 0.25s; }
+    .project-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .project-thumb { width: 100%; aspect-ratio: 4/3; background: var(--bg); position: relative; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--rule); overflow: hidden; }
+    .project-thumb::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(var(--rule) 1px, transparent 1px), linear-gradient(90deg, var(--rule) 1px, transparent 1px); background-size: 28px 28px; opacity: 0.5; }
+    .project-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+    .thumb-icon { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .thumb-icon svg { width: 48px; height: 48px; stroke: var(--accent); opacity: 0.7; }
+    .thumb-icon span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); }
+    .project-body { padding: 20px 22px 22px; }
+    .project-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .project-title { font-family: var(--serif); font-size: 20px; font-weight: 600; margin-bottom: 10px; line-height: 1.25; }
+    .project-desc { font-size: 14px; color: var(--mid); line-height: 1.65; margin-bottom: 18px; }
 
-    .badge {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      padding: 5px 12px;
-      border: 1px solid var(--rule);
-      border-radius: 2px;
-      background: var(--card-bg);
-      color: var(--mid);
-    }
-
-    .badge.accent {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* ── SECTION SHARED ────────────────────────────────────────── */
-    section {
-      padding: 72px 0;
-    }
-
-    section:nth-of-type(even) {
-      background: var(--paper);
-    }
-
-    .section-label {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(28px, 4vw, 38px);
-      font-weight: 500;
-      margin-bottom: 40px;
-      line-height: 1.15;
-    }
-
-    /* ── PROJECT GRID ──────────────────────────────────────────── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .project-card {
-      background: var(--card-bg);
-      border: 1px solid var(--rule);
-      border-radius: 3px;
-      overflow: hidden;
-      transition: box-shadow 0.25s, transform 0.25s;
-    }
-
-    .project-card:hover {
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-      transform: translateY(-2px);
-    }
-
-    .project-thumb {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      background: var(--bg);
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid var(--rule);
-      overflow: hidden;
-    }
-
-    /* Blueprint-style placeholder SVG background */
-    .project-thumb::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(var(--rule) 1px, transparent 1px),
-        linear-gradient(90deg, var(--rule) 1px, transparent 1px);
-      background-size: 28px 28px;
-      opacity: 0.5;
-    }
-
-    /* Real thumbnail image */
-    .project-thumb img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 1;
-    }
-
-    .thumb-icon {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .thumb-icon svg {
-      width: 48px;
-      height: 48px;
-      stroke: var(--accent);
-      opacity: 0.7;
-    }
-
-    .thumb-icon span {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--mid);
-    }
-
-    .project-body {
-      padding: 20px 22px 22px;
-    }
-
-    .project-tag {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .project-title {
-      font-family: var(--serif);
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 10px;
-      line-height: 1.25;
-    }
-
-    .project-desc {
-      font-size: 14px;
-      color: var(--mid);
-      line-height: 1.65;
-      margin-bottom: 18px;
-    }
-
-    .btn-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .btn-view {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--card-bg);
-      background: var(--ink);
-      border: 1px solid var(--ink);
-      padding: 8px 16px;
-      border-radius: 2px;
-      transition: background 0.2s, border-color 0.2s;
-    }
-
+    /* BUTTONS */
+    .btn-row { display: flex; align-items: center; gap: 10px; }
+    .btn-view { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--card-bg); background: var(--ink); border: 1px solid var(--ink); padding: 8px 16px; border-radius: 2px; transition: background 0.2s, border-color 0.2s; }
     .btn-view:hover { background: var(--accent); border-color: var(--accent); }
     .btn-view svg { width: 13px; height: 13px; }
-
-    .btn-dl {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border: 1px solid var(--rule);
-      border-radius: 2px;
-      color: var(--mid);
-      transition: border-color 0.2s, color 0.2s;
-      flex-shrink: 0;
-    }
-
+    .btn-dl { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid var(--rule); border-radius: 2px; color: var(--mid); transition: border-color 0.2s, color 0.2s; flex-shrink: 0; }
     .btn-dl:hover { border-color: var(--ink); color: var(--ink); }
     .btn-dl svg { width: 14px; height: 14px; }
 
-    /* ── ABOUT ─────────────────────────────────────────────────── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: start;
-    }
-
-    .about-text {
-      font-size: 15px;
-      color: var(--mid);
-      line-height: 1.8;
-    }
-
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .about-text { font-size: 15px; color: var(--mid); line-height: 1.8; }
     .about-text p + p { margin-top: 16px; }
+    .certs-list { display: flex; flex-direction: column; gap: 12px; }
+    .cert-item { display: flex; align-items: center; gap: 14px; padding: 12px 16px; border: 1px solid var(--rule); border-radius: 3px; background: var(--card-bg); }
+    .cert-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .cert-name { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; }
 
-    .certs-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .cert-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 12px 16px;
-      border: 1px solid var(--rule);
-      border-radius: 3px;
-      background: var(--card-bg);
-    }
-
-    .cert-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .cert-name {
-      font-family: var(--mono);
-      font-size: 12px;
-      letter-spacing: 0.06em;
-      color: var(--ink);
-    }
-
-    /* ── FOOTER ────────────────────────────────────────────────── */
-    footer {
-      background: var(--ink);
-      color: #aaa;
-      padding: 48px 0;
-      border-top: 2px solid var(--accent);
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 24px;
-    }
-
-    .footer-name {
-      font-family: var(--serif);
-      font-size: 22px;
-      font-weight: 500;
-      color: #fff;
-    }
-
-    .footer-sub {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-top: 4px;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 8px;
-    }
-
-    .footer-link {
-      font-family: var(--mono);
-      font-size: 13px;
-      color: #ccc;
-      transition: color 0.2s;
-    }
-
+    /* FOOTER */
+    footer { background: var(--ink); color: #aaa; padding: 48px 0; border-top: 2px solid var(--accent); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
+    .footer-name { font-family: var(--serif); font-size: 22px; font-weight: 500; color: #fff; }
+    .footer-sub { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-top: 4px; }
+    .footer-links { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+    .footer-link { font-family: var(--mono); font-size: 13px; color: #ccc; transition: color 0.2s; }
     .footer-link:hover { color: var(--accent); }
+    .footer-copy { width: 100%; border-top: 1px solid #333; padding-top: 24px; margin-top: 12px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; color: #555; }
 
-    .footer-copy {
-      width: 100%;
-      border-top: 1px solid #333;
-      padding-top: 24px;
-      margin-top: 12px;
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      color: #555;
-    }
-
-    /* ── RESPONSIVE ────────────────────────────────────────────── */
     @media (max-width: 680px) {
-      .about-grid { grid-template-columns: 1fr; gap: 32px; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
+      .about-grid, .projects-grid { grid-template-columns: 1fr; }
+      .nav-links, .toggle-divider { display: none; }
       .footer-links { align-items: flex-start; }
-      .footer-inner { flex-direction: column; }
+      .footer-inner, .portfolio-header { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <div class="inner">
       <span class="nav-brand">SA — Portfolio</span>
@@ -458,12 +125,11 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <header>
     <div class="container">
       <p class="hero-label">Technical Drafter &amp; IT Professional — Melbourne, AU</p>
       <h1 class="hero-name">Stephen<br/>Alegros</h1>
-      <p class="hero-tagline">AutoCAD-certified electrical drafter with a background in networking and cloud infrastructure. Precision in every line.</p>
+      <p class="hero-tagline" id="hero-tagline">AutoCAD-certified electrical drafter with a background in networking and cloud infrastructure. Precision in every line.</p>
       <div class="badge-row">
         <span class="badge accent">AutoCAD Certified</span>
         <span class="badge">CCNA</span>
@@ -473,23 +139,33 @@
     </div>
   </header>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <div class="container">
-      <p class="section-label">Drafting Portfolio</p>
-      <h2 class="section-title">Technical Drawings</h2>
+      <div class="portfolio-header">
+        <div>
+          <p class="section-label" id="section-label">Drafting Portfolio</p>
+          <h2 class="section-title" id="section-title">Technical Drawings</h2>
+        </div>
+        <div class="toggle-wrap">
+          <button class="toggle-btn active" id="btn-eng" onclick="switchTo('eng')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 9v12"/></svg>
+            Engineering
+          </button>
+          <div class="toggle-divider"></div>
+          <button class="toggle-btn" id="btn-it" onclick="switchTo('it')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            IT
+          </button>
+        </div>
+      </div>
 
-      <div class="projects-grid">
-
-        <!-- Project 1 -->
+      <!-- ENGINEERING GRID -->
+      <div class="projects-grid" id="grid-eng">
         <div class="project-card">
           <div class="project-thumb">
             <!-- <img src="thumbnails/commercial-floor-plan.png" alt="Commercial Electrical Floor Plan"> -->
             <div class="thumb-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="1"/>
-                <path d="M3 9h18M9 9v12M3 15h6M15 9v12M15 15h6"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 9v12M3 15h6M15 9v12M15 15h6"/></svg>
               <span>Floor Plan</span>
             </div>
           </div>
@@ -498,28 +174,17 @@
             <h3 class="project-title">Commercial Electrical Floor Plan</h3>
             <p class="project-desc">Full electrical layout for a commercial space including power points, lighting circuits, switchboard location, and conduit routing — drawn to AS/NZS standards.</p>
             <div class="btn-row">
-              <a class="btn-view" href="#" target="_blank">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                View
-              </a>
-              <a class="btn-dl" href="#" download title="Download PDF">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2"/></svg>
-              </a>
+              <a class="btn-view" href="#" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>View</a>
+              <a class="btn-dl" href="#" download title="Download PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2"/></svg></a>
             </div>
           </div>
         </div>
 
-        <!-- Project 2 -->
         <div class="project-card">
           <div class="project-thumb">
             <!-- <img src="thumbnails/single-line-diagram.png" alt="Single Line Diagram"> -->
             <div class="thumb-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="5" r="2"/>
-                <circle cx="5" cy="19" r="2"/>
-                <circle cx="19" cy="19" r="2"/>
-                <path d="M12 7v4M10 13l-3.5 4M14 13l3.5 4M8 19h8"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v4M10 13l-3.5 4M14 13l3.5 4M8 19h8"/></svg>
               <span>Single Line</span>
             </div>
           </div>
@@ -528,26 +193,17 @@
             <h3 class="project-title">Single Line Diagram — Small Substation</h3>
             <p class="project-desc">SLD for a small substation showing incoming HV supply, transformer, main switchboard, and distribution panels with protection device ratings and fault levels annotated.</p>
             <div class="btn-row">
-              <a class="btn-view" href="#" target="_blank">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                View
-              </a>
-              <a class="btn-dl" href="#" download title="Download PDF">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2"/></svg>
-              </a>
+              <a class="btn-view" href="#" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>View</a>
+              <a class="btn-dl" href="#" download title="Download PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2"/></svg></a>
             </div>
           </div>
         </div>
 
-        <!-- Project 3 -->
         <div class="project-card">
           <div class="project-thumb">
             <!-- <img src="thumbnails/cable-schedule.png" alt="Cable Schedule and Routing"> -->
             <div class="thumb-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="16" rx="1"/>
-                <path d="M3 9h18M7 4v5M12 4v5M17 4v5M7 14h2M7 17h5M15 14h2"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M7 4v5M12 4v5M17 4v5M7 14h2M7 17h5M15 14h2"/></svg>
               <span>Cable Schedule</span>
             </div>
           </div>
@@ -556,85 +212,112 @@
             <h3 class="project-title">Cable Schedule &amp; Routing Drawing</h3>
             <p class="project-desc">Coordinated cable schedule paired with a routing diagram: cable IDs, sizes, insulation ratings, tray paths, and termination points — formatted for construction issue.</p>
             <div class="btn-row">
-              <a class="btn-view" href="#" target="_blank">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                View
-              </a>
-              <a class="btn-dl" href="#" download title="Download PDF">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2"/></svg>
-              </a>
+              <a class="btn-view" href="#" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>View</a>
+              <a class="btn-dl" href="#" download title="Download PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2"/></svg></a>
             </div>
           </div>
         </div>
 
-        <!-- Project 4 -->
         <div class="project-card">
           <div class="project-thumb">
-            <img src="thumbnails/microcadd_stephen.png" alt="Two-Storey Residence">
+            <img src="thumbnails/microcadd_stephen.png" alt="Two-Storey Residence"> 
           </div>
           <div class="project-body">
             <p class="project-tag">Architectural Drafting</p>
             <h3 class="project-title">Two-Storey Residence — Floor Plans</h3>
             <p class="project-desc">Ground and second floor plans with exterior and interior perspectives. Produced at MicroCADD Institute (Autodesk Authorized Training Center) — demonstrates foundational AutoCAD draughting and layout proficiency.</p>
             <div class="btn-row">
-              <a class="btn-view" href="drawings/microcadd_stephen.pdf" target="_blank">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                View
-              </a>
-              <a class="btn-dl" href="drawings/microcadd_stephen.pdf" download title="Download PDF">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2"/></svg>
-              </a>
+              <a class="btn-view" href="drawings/microcadd_stephen.pdf" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>View</a>
+              <a class="btn-dl" href="drawings/microcadd_stephen.pdf" download title="Download PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- IT GRID -->
+      <div class="projects-grid hidden" id="grid-it">
+        <div class="project-card">
+          <div class="project-thumb">
+            <!-- <img src="thumbnails/iot-system.png" alt="IoT Motor Control System"> -->
+            <div class="thumb-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+              <span>IoT / Cloud</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-tag">IoT · AWS · Docker</p>
+            <h3 class="project-title">IoT Motor Control &amp; Telemetry System</h3>
+            <p class="project-desc">End-to-end pipeline: ESP32 → MQTT (TLS) → AWS Lambda → DynamoDB. Defense-in-depth security with IAM and encrypted comms. Containerised with Docker Compose, FreeRTOS firmware with PWM control.</p>
+            <div class="btn-row">
+              <a class="btn-view" href="https://github.com/steeppn" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>GitHub</a>
             </div>
           </div>
         </div>
 
+        <div class="project-card">
+          <div class="project-thumb">
+            <!-- <img src="thumbnails/enterprise-network.png" alt="Enterprise Network Simulation"> -->
+            <div class="thumb-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="16" y="2" width="6" height="6" rx="1"/><rect x="9" y="16" width="6" height="6" rx="1"/><path d="M5 8v3a1 1 0 001 1h12a1 1 0 001-1V8M12 12v4"/></svg>
+              <span>Networking</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-tag">CCNA · Security · Packet Tracer</p>
+            <h3 class="project-title">Enterprise Network Simulation</h3>
+            <p class="project-desc">Multi-router network with OSPF, VLAN segmentation, SSH v2, DHCP snooping, DAI, time-based ACLs, AAA authentication, HSRP, RPVST+, VoIP QoS, and isolated Guest WiFi.</p>
+            <div class="btn-row">
+              <a class="btn-view" href="https://github.com/steeppn" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-thumb">
+            <!-- <img src="thumbnails/aws-ha.png" alt="AWS High-Availability Infrastructure"> -->
+            <div class="thumb-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
+              <span>AWS / Cloud</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-tag">AWS · VPC · HA Architecture</p>
+            <h3 class="project-title">AWS High-Availability Infrastructure</h3>
+            <p class="project-desc">HA VPC across two AZs with ALB and Auto Scaling. Security-first design: private subnets, NAT Gateway, bastion host, Security Group chaining, Network ACLs, IAM least-privilege, encrypted EBS, VPC Flow Logs.</p>
+            <div class="btn-row">
+              <a class="btn-view" href="https://github.com/steeppn" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>GitHub</a>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="container">
       <p class="section-label">Background</p>
       <h2 class="section-title">About</h2>
-
       <div class="about-grid">
         <div class="about-text">
           <p>I'm an AutoCAD-certified technical drafter specialising in electrical drawings, with a strong foundation in network infrastructure and cloud systems. Based in Melbourne (incoming) and studying for a Bachelor of Information Technology.</p>
           <p>My background spans hands-on electrical drafting, enterprise network simulation, and IoT system deployment — disciplines that share the same demand for accuracy, documentation discipline, and systems thinking.</p>
           <p>I bring a detail-oriented approach to every drawing and an engineering-first mindset to every problem.</p>
         </div>
-
         <div>
           <p class="section-label" style="margin-bottom:16px;">Credentials</p>
           <div class="certs-list">
-            <div class="cert-item">
-              <span class="cert-dot"></span>
-              <span class="cert-name">AutoCAD Certified User — Autodesk ATC</span>
-            </div>
-            <div class="cert-item">
-              <span class="cert-dot"></span>
-              <span class="cert-name">CCNA — Cisco, Nov 2025</span>
-            </div>
-            <div class="cert-item">
-              <span class="cert-dot"></span>
-              <span class="cert-name">CompTIA Security+ — Dec 2025</span>
-            </div>
-            <div class="cert-item">
-              <span class="cert-dot"></span>
-              <span class="cert-name">AWS Cloud Practitioner — Jul 2025</span>
-            </div>
-            <div class="cert-item">
-              <span class="cert-dot"></span>
-              <span class="cert-name">PTE Academic: 88/90 — Superior English</span>
-            </div>
+            <div class="cert-item"><span class="cert-dot"></span><span class="cert-name">AutoCAD Certified User — Autodesk ATC</span></div>
+            <div class="cert-item"><span class="cert-dot"></span><span class="cert-name">CCNA — Cisco, Nov 2025</span></div>
+            <div class="cert-item"><span class="cert-dot"></span><span class="cert-name">CompTIA Security+ — Dec 2025</span></div>
+            <div class="cert-item"><span class="cert-dot"></span><span class="cert-name">AWS Cloud Practitioner — Jul 2025</span></div>
+            <div class="cert-item"><span class="cert-dot"></span><span class="cert-name">PTE Academic: 88/90 — Superior English</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER / CONTACT -->
   <footer id="contact">
     <div class="container">
       <div class="footer-inner">
@@ -643,5 +326,39 @@
           <p class="footer-sub">Technical Drafter &amp; IT Professional</p>
         </div>
         <div class="footer-links">
-          <a class="footer-link" href="/cdn-cgi/l/email-protection#4d3e39283d2528232c21282a3f223e3e0d2a202c2421632e2220"><span class="__cf_email__" data-cfemail="285b5c4d58404d4649444d4f5a475b5b684f45494144064b4745">[email&#160;protected]</span></a>
+          <a class="footer-link" href="mailto:stephenalegross@gmail.com">stephenalegross@gmail.com</a>
           <a class="footer-link" href="https://linkedin.com/in/stephen-alegros" target="_blank" rel="noopener">linkedin.com/in/stephen-alegros</a>
+        </div>
+        <p class="footer-copy">© 2026 Stephen Alegros — Melbourne, Australia</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const copy = {
+      eng: {
+        label: 'Drafting Portfolio',
+        title: 'Technical Drawings',
+        tagline: 'AutoCAD-certified electrical drafter with a background in networking and cloud infrastructure. Precision in every line.'
+      },
+      it: {
+        label: 'IT Portfolio',
+        title: 'Technical Projects',
+        tagline: 'CCNA, Security+, and AWS certified — building enterprise networks, cloud infrastructure, and IoT systems from the ground up.'
+      }
+    };
+
+    function switchTo(mode) {
+      const other = mode === 'eng' ? 'it' : 'eng';
+      document.getElementById('grid-' + mode).classList.remove('hidden');
+      document.getElementById('grid-' + other).classList.add('hidden');
+      document.getElementById('btn-' + mode).classList.add('active');
+      document.getElementById('btn-' + other).classList.remove('active');
+      document.getElementById('section-label').textContent = copy[mode].label;
+      document.getElementById('section-title').textContent = copy[mode].title;
+      document.getElementById('hero-tagline').textContent = copy[mode].tagline;
+    }
+  </script>
+
+</body>
+</html>
